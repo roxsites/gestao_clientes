@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listar Clientes</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+
+        </div>
+
+        <div class="col-6">
+            <h3>Listagem de clientes</h3>
+            <ul>
+                {% for person in persons %}
+                    <li class="list-group-item">
+                        <a href="{% url 'persons_update' person.id %}">{{ person.first_name }} {{ person.last_name }}</a>
+                        <a href="{% url 'persons_delete' person.id %}"> x </a>
+                    </li>
+
+                {% endfor %}
+            </ul>
+
+            <br>
+
+            <a href="{% url 'person_new' %}"> Novo cliente</a>
+
+        </div>
+
+    </div>
+</body>
+</html>
